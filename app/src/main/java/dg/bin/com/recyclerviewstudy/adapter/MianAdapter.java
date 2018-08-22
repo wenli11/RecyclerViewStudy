@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import dg.bin.com.recyclerviewstudy.R;
+import dg.bin.com.recyclerviewstudy.model.RecyclerViewTypeModel;
 
 /**
  * Created by b on 2018/8/9.
@@ -21,11 +22,11 @@ public class MianAdapter extends RecyclerView.Adapter<MianAdapter.ViewHolder> {
 
     Context mContext;
 
-    List<Map<String, String>> mList;
+    List<RecyclerViewTypeModel> mList;
 
     private OnItemClickListener onItemClickListener;
 
-    public MianAdapter(Context mContext, List<Map<String, String>> mList){
+    public MianAdapter(Context mContext, List<RecyclerViewTypeModel> mList){
         this.mContext = mContext;
         this.mList = mList;
     }
@@ -41,7 +42,8 @@ public class MianAdapter extends RecyclerView.Adapter<MianAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.mNameTextView.setText(mList.get(position).get("name"));
+        holder.mNameTextView.setText(mList.get(position).getName());
+        holder.mContentTextView.setText(mList.get(position).getContent());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,11 +65,12 @@ public class MianAdapter extends RecyclerView.Adapter<MianAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView mNameTextView;
+        TextView mNameTextView, mContentTextView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             mNameTextView = itemView.findViewById(R.id.tv_name);
+            mContentTextView = itemView.findViewById(R.id.tv_content);
         }
     }
 }
