@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 import dg.bin.com.recyclerviewstudy.R;
@@ -17,20 +15,20 @@ import dg.bin.com.recyclerviewstudy.R;
  * Created by b on 2018/8/10.
  */
 
-public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.ViewHolder> {
+public class LinearVerticalAdapter extends RecyclerView.Adapter<LinearVerticalAdapter.ViewHolder> {
 
     List<String> mList;
 
     Context mContext;
 
-    public VerticalAdapter(Context mContext, List<String> mList){
+    public LinearVerticalAdapter(Context mContext, List<String> mList){
         this.mContext = mContext;
         this.mList = mList;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_adapter_vertical, parent, false));
+        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_adapter_linear_vertical, parent, false));
     }
 
     @Override

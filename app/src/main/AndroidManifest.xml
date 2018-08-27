@@ -16,10 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.RecyclerViewLinearActivity" />
+        <activity android:name=".activity.RecyclerViewLinearVerticalActivity" />
         <activity android:name=".activity.RecyclerViewGridActivity" />
         <activity android:name=".activity.RecyclerViewWaterfallFlowHorizontalActivity" />
-        <activity android:name=".activity.RecyclerViewWaterfallFlowVerticalActivity"></activity>
+        <activity android:name=".activity.RecyclerViewWaterfallFlowVerticalActivity" />
+        <activity android:name=".activity.RecyclerViewLinearHorizontalActivity"></activity>
     </application>
 
 </manifest>

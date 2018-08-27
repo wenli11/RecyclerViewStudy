@@ -2,15 +2,18 @@ package dg.bin.com.recyclerviewstudy.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import dg.bin.com.recyclerviewstudy.GridDividerItemDecoration;
+import dg.bin.com.recyclerviewstudy.LinearDividerItemDecoration;
 import dg.bin.com.recyclerviewstudy.R;
-import dg.bin.com.recyclerviewstudy.adapter.VerticalAdapter;
+import dg.bin.com.recyclerviewstudy.adapter.LinearVerticalAdapter;
+import dg.bin.com.recyclerviewstudy.adapter.WaterfallFlowHorizontalAdapter;
 
 public class RecyclerViewWaterfallFlowHorizontalActivity extends AppCompatActivity {
 
@@ -18,7 +21,7 @@ public class RecyclerViewWaterfallFlowHorizontalActivity extends AppCompatActivi
 
     List<String> mList;
 
-    VerticalAdapter mVerticalAdapter;
+    WaterfallFlowHorizontalAdapter mWaterfallFlowHorizontalAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +35,25 @@ public class RecyclerViewWaterfallFlowHorizontalActivity extends AppCompatActivi
 
     private void initView() {
         mRecyclerViewVitical = findViewById(R.id.rv_vertical);
-        StaggeredGridLayoutManager mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL);
+        recyclerViewShow();
+        addItenDecoration();
+    }
+
+    //recyclerView基本展示
+    private void recyclerViewShow(){
+        StaggeredGridLayoutManager mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.HORIZONTAL);
         mRecyclerViewVitical.setLayoutManager(mStaggeredGridLayoutManager);
 
-        mVerticalAdapter = new VerticalAdapter(this, mList);
-        mRecyclerViewVitical.setAdapter(mVerticalAdapter);
+        mWaterfallFlowHorizontalAdapter = new WaterfallFlowHorizontalAdapter(this, mList);
+        mRecyclerViewVitical.setAdapter(mWaterfallFlowHorizontalAdapter);
+    }
+
+    //设置分隔线
+    private void addItenDecoration(){
+        //系统默认
+
+        //自定义
+        mRecyclerViewVitical.addItemDecoration(new GridDividerItemDecoration(this));
     }
 
     private void initData() {

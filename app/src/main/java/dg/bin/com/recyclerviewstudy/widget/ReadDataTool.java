@@ -1,21 +1,13 @@
-package dg.bin.com.recyclerviewstudy.tools;
+package dg.bin.com.recyclerviewstudy.widget;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.util.Log;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-
-import dg.bin.com.recyclerviewstudy.model.RecyclerViewTypeListModel;
-import dg.bin.com.recyclerviewstudy.model.RecyclerViewTypeModel;
 
 /**
  * Created by b on 2018/8/22.

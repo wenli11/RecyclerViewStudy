@@ -8,16 +8,17 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import dg.bin.com.recyclerviewstudy.LinearDividerItemDecoration;
 import dg.bin.com.recyclerviewstudy.R;
-import dg.bin.com.recyclerviewstudy.adapter.VerticalAdapter;
+import dg.bin.com.recyclerviewstudy.adapter.LinearVerticalAdapter;
 
-public class RecyclerViewLinearActivity extends AppCompatActivity {
+public class RecyclerViewLinearVerticalActivity extends AppCompatActivity {
 
     RecyclerView mRecyclerViewVitical;
 
     List<String> mList;
 
-    VerticalAdapter mVerticalAdapter;
+    LinearVerticalAdapter mVerticalAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +30,27 @@ public class RecyclerViewLinearActivity extends AppCompatActivity {
         initView();
     }
 
+    //基本展示的设置
     private void initView() {
         mRecyclerViewVitical = findViewById(R.id.rv_vertical);
+        recyclerViewShow();
+        addItenDecoration();
+    }
+
+    //recyclerView基本展示
+    private void recyclerViewShow(){
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerViewVitical.setLayoutManager(linearLayoutManager);
-
-        mVerticalAdapter = new VerticalAdapter(this, mList);
+        mVerticalAdapter = new LinearVerticalAdapter(this, mList);
         mRecyclerViewVitical.setAdapter(mVerticalAdapter);
+    }
+
+    //设置分隔线
+    private void addItenDecoration(){
+        //系统默认
+//        mRecyclerViewVitical.addItemDecoration( new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        //自定义
+        mRecyclerViewVitical.addItemDecoration(new LinearDividerItemDecoration(this, LinearDividerItemDecoration.VERTICAL));
     }
 
     private void initData() {

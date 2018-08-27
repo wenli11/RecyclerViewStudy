@@ -1,13 +1,16 @@
 package dg.bin.com.recyclerviewstudy.model;
 
+import java.io.Serializable;
+
 /**
  * Created by b on 2018/8/22.
  */
 
-public class RecyclerViewTypeModel {
+public class RecyclerViewTypeModel implements Serializable {
 
     String name;
     String content;
+//    Class cla;
 
     public String getName() {
         return name;
@@ -24,4 +27,12 @@ public class RecyclerViewTypeModel {
     public void setContent(String content) {
         this.content = content;
     }
+
+//    public Class getCla() {
+//        return cla;
+//    }
+//
+//    public void setCla(Class cla) {
+//        this.cla = cla;
+//    }
 }

@@ -5,18 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.ArrayMap;
-import android.util.Log;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import dg.bin.com.recyclerviewstudy.R;
 import dg.bin.com.recyclerviewstudy.adapter.MianAdapter;
 import dg.bin.com.recyclerviewstudy.model.RecyclerViewTypeListModel;
 import dg.bin.com.recyclerviewstudy.model.RecyclerViewTypeModel;
-import dg.bin.com.recyclerviewstudy.tools.ReadDataTool;
+import dg.bin.com.recyclerviewstudy.widget.ReadDataTool;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,15 +24,20 @@ public class MainActivity extends AppCompatActivity {
         public void OnItemClickListener(int position) {
             switch (position){
                 case 0:
-                    goActivity(RecyclerViewLinearActivity.class);
+                    goActivity(RecyclerViewLinearVerticalActivity.class);
                     break;
                 case 1:
-                    goActivity(RecyclerViewGridActivity.class);
+                    goActivity(RecyclerViewLinearHorizontalActivity.class);
                     break;
                 case 2:
-                    goActivity(RecyclerViewWaterfallFlowHorizontalActivity.class);
+                    goActivity(RecyclerViewGridActivity.class);
+
                     break;
                 case 3:
+                    goActivity(RecyclerViewWaterfallFlowHorizontalActivity.class);
+
+                    break;
+                case 4:
                     goActivity(RecyclerViewWaterfallFlowVerticalActivity.class);
                     break;
             }
@@ -47,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        List<Class> list = new ArrayList<>();
+//        list.add(RecyclerViewWaterfallFlowVerticalActivity.class);
+//        Log.e("onCreate: ", list.get(0).toString());
+//        String s = new Gson().toJson(list);
+//        Log.e("onCreate: ", s);
 
         initData();
         initView();
