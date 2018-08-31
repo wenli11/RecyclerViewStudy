@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Random;
 
 import dg.bin.com.recyclerviewstudy.R;
 
@@ -39,6 +40,16 @@ public class LinearVerticalAdapter extends RecyclerView.Adapter<LinearVerticalAd
     @Override
     public int getItemCount() {
         return mList.size();
+    }
+
+    public void addView(){
+        mList.add(mList.size(), (new Random()).nextInt(100)+"");
+        notifyItemInserted(mList.size());
+    }
+
+    public void removeView(int position){
+        mList.remove(position);
+        notifyItemRemoved(position);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
