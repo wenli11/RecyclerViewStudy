@@ -76,10 +76,12 @@ public class RecyclerViewLinearVerticalActivity extends AppCompatActivity implem
         switch (v.getId()){
             case R.id.tv_add:
                 mVerticalAdapter.addView();
+                //显示指定位置
                 mRecyclerViewVitical.scrollToPosition(mList.size()-1);
                 break;
             case R.id.tv_remove:
                 int i = new Random().nextInt(mList.size());
+                //显示指定位置
                 mRecyclerViewVitical.scrollToPosition(i);
                 mVerticalAdapter.removeView(i);
 

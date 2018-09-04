@@ -29,6 +29,12 @@ public class LinearVerticalAdapter extends RecyclerView.Adapter<LinearVerticalAd
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        //根据viewType显示需要的布局
+        if(viewType == 0){
+
+        }else {
+
+        }
         return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_adapter_linear_vertical, parent, false));
     }
 
@@ -42,11 +48,24 @@ public class LinearVerticalAdapter extends RecyclerView.Adapter<LinearVerticalAd
         return mList.size();
     }
 
+    //用于设置多布局
+    @Override
+    public int getItemViewType(int position) {
+        if(position%2 == 0){
+            return 0;
+        }else {
+            return 1;
+        }
+//        return super.getItemViewType(position);
+    }
+
+    //添加数据
     public void addView(){
         mList.add(mList.size(), (new Random()).nextInt(100)+"");
         notifyItemInserted(mList.size());
     }
 
+    //移除数据
     public void removeView(int position){
         mList.remove(position);
         notifyItemRemoved(position);
